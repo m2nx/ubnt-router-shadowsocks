@@ -37,6 +37,9 @@ iptables -t nat -A $CHAIN_NAME -d 240.0.0.0/4 -j RETURN
 iptables -t nat -A $CHAIN_NAME -p tcp -m set --match-set chnroute dst -j RETURN
 iptables -t nat -A $CHAIN_NAME -p icmp -m set --match-set chnroute dst -j RETURN
 
+# Add to prerouting chain
+iptables -t nat -A PREROUTING -p tcp -j $CHAIN_NAME
+
 #for ip in $(cat cn_ipv4.list)
 #do
 #  echo "iptables -t nat -A $CHAIN_NAME -d $ip -j RETURN"
