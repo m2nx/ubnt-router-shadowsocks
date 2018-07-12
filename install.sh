@@ -35,7 +35,7 @@ iptables -t nat -A $CHAIN_NAME -d 224.0.0.0/4 -j RETURN
 iptables -t nat -A $CHAIN_NAME -d 240.0.0.0/4 -j RETURN
 
 # ipset match
-iptables -t nat -A $CHAIN_NAME -p tcp -m set --match-set chnroute dst -j RETURN
+iptables -t nat -A $CHAIN_NAME -p tcp -m set --match-set chnlist dst -j RETURN
 
 # Add to prerouting chain
 iptables -t nat -A PREROUTING -p tcp -j $CHAIN_NAME
