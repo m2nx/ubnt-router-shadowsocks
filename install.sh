@@ -7,12 +7,13 @@ curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | grep ipv4
 wait
 
 # Add new ipset
-ipset -N chnroute hash:net maxelem 65536
+ipset destroy chnlist
+ipset -N chnlist hash:net maxelem 65536
 
 for ip in $(cat cn_ipv4.list)
 do
   echo "Add ip $ip to ipset."
-  ipset add chnroute $ip
+  ipset add chnlist $ip
 done
 
 CHAIN_NAME='BYPASSLIST'
