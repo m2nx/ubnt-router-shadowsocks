@@ -23,7 +23,13 @@ echo 'ipset done.'
 iptables -t nat -N $CHAIN_NAME
 
 # Add server IP
-# iptables -t nat -A $CHAIN_NAME -d $SERVER_IP -j RETURN
+if [ -n "$SERVER_IP" ]
+then
+  echo "Your server IP is $SERVER_IP"
+else
+  read -p "Please set server IP:" SERVER_IP
+fi
+iptables -t nat -A $CHAIN_NAME -d $SERVER_IP -j RETURN
 
 # LAN IP
 iptables -t nat -A $CHAIN_NAME -d 0.0.0.0/8 -j RETURN
