@@ -5,18 +5,19 @@ add_rules()
 {
 curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > cn_ipv4.list
 wait
+CHAIN_NAME='BYPASSLIST'
 
+del_rules
 # Add new ipset
 ipset destroy chnlist
 ipset -N chnlist hash:net maxelem 65536
 
+echo 'ipset processing...'
 for ip in $(cat cn_ipv4.list)
 do
-  echo "Add ip $ip to ipset."
   ipset add chnlist $ip
 done
-
-CHAIN_NAME='BYPASSLIST'
+echo 'ipset done.'
 
 # Add new chain $CHAIN_NAME
 iptables -t nat -N $CHAIN_NAME
@@ -52,10 +53,10 @@ echo 'Done.'
 
 del_rules()
 {
+ipset destroy chnroute
 iptables -t nat -F $CHAIN_NAME
 iptables -t nat -X $CHAIN_NAME
-ipset destroy chnroute
-echo 'Done.'
+echo 'Del_rules Done.'
 }
 
 backup_iptables()
