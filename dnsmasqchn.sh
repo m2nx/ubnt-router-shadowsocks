@@ -39,6 +39,7 @@ done
 
 touch /etc/dnsmasq.d/final.conf
 echo 'server=/#/127.0.0.1#153' > /etc/dnsmasq.d/final.conf
+echo 'conf-dir=/etc/dnsmasq.d/,*.conf' >> /etc/dnsmasq.conf
 
 echo "Restarting dnsmasq service..."
 
