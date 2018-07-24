@@ -45,7 +45,7 @@ iptables -t nat -A $CHAIN_NAME -d 240.0.0.0/4 -j RETURN
 iptables -t nat -A $CHAIN_NAME -p tcp -m set --match-set chnlist dst -j RETURN
 
 # redirect
-# iptables -t nat -A SHADOWSOCKS -p tcp -j REDIRECT --to-ports 1080
+iptables -t nat -A $CHAIN_NAME -p tcp -j REDIRECT --to-ports 1080
 
 # Add to prerouting chain
 iptables -t nat -A PREROUTING -p tcp -j $CHAIN_NAME
