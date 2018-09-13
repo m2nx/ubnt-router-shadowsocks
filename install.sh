@@ -3,7 +3,7 @@
 # Email 4isnothing@gmail.com
 add_rules()
 {
-curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | grep ipv4 | grep CN | awk -F\| '{ printf("%s/%d\n", $4, 32-log($5)/log(2)) }' > cn_ipv4.list
+curl 'https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt' > cn_ipv4.list
 wait
 CHAIN_NAME='BYPASSLIST'
 
