@@ -39,5 +39,5 @@ sed -i "s|{ip}|$SERVER_IP|g" conf.d/shadowsocks.conf
 sed -i "s|{port}|$SERVER_PORT|g" conf.d/shadowsocks.conf
 sed -i "s|{method}|$SERVER_METHOD|g" conf.d/shadowsocks.conf
 sed -i "s|{pass}|$SERVER_PASS|g" conf.d/shadowsocks.conf
-exit
+sed -i "s|# SERVER_IP|SERVER_IP=$SERVER_IP|g" iptables.sh
 cp conf.d/shadowsocks.conf /etc/supervisor/conf.d/shadowsocks.conf

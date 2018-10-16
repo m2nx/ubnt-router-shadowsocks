@@ -1,6 +1,7 @@
 #!/bin/bash
-# Maintainer MMX 
+# Maintainer MMX
 # Email 4isnothing@gmail.com
+# SERVER_IP
 add_rules()
 {
 curl 'https://raw.githubusercontent.com/17mon/china_ip_list/master/china_ip_list.txt' > cn_ipv4.list
