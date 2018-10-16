@@ -4,7 +4,7 @@ read -p "请输入服务器地址: " SERVER_IP
 echo $SERVER_IP
 read -p "请输入服务器端口: " SERVER_PORT
 echo $SERVER_PORT
-echo "请选择服务器加密方式: " 
+echo "请选择服务器加密方式: "
 echo "1 chacha20-ietf-poly1305" "2 aes-128-gcm" "3 chacha20" "4 rc4-md5" "5 salsa20" "6 aes-256-cfb"
 select method in "1" "2" "3" "4" "5" "6";do
   case $method in
@@ -30,4 +30,5 @@ sed -i "s|{ip}|$SERVER_IP|g" conf.d/shadowsocks.conf
 sed -i "s|{port}|$SERVER_PORT|g" conf.d/shadowsocks.conf
 sed -i "s|{method}|$SERVER_METHOD|g" conf.d/shadowsocks.conf
 sed -i "s|{pass}|$SERVER_PASS|g" conf.d/shadowsocks.conf
+exit
 cp conf.d/shadowsocks.conf /etc/supervisor/conf.d/shadowsocks.conf
