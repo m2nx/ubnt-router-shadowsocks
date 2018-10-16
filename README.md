@@ -23,9 +23,11 @@ set system package repository wheezy url http://http.us.debian.org/debian
 commit ; save
 sudo -i
 apt-get update
-apt-get install supervisorctl
+apt-get install git wget supervisorctl
 ```
-2. 执行脚本  
+2. 下载仓库文件并执行脚本  
+```
+git clone git@github.com:imMMX/ubnt-router-shadowsocks.git
 按照提示填入服务器信息，等待脚本执行完毕后确认 /etc/dnsmasq.d/ 有相关文件。  
 
 * iptables 样例  
@@ -44,6 +46,7 @@ RETURN     all  --  anywhere             base-address.mcast.net/4
 RETURN     all  --  anywhere             240.0.0.0/4
 RETURN     tcp  --  anywhere             anywhere             match-set chnlist dst
 ```
+
 3. 安装 shadowsocks-libev  
 架构是 mips 和 mips64 的可以去我这个仓库 [ubnt-mips-shadowsocks-libev](https://github.com/imMMX/ubnt-mips-shadowsocks-libev) 下载或者自己编译。解压缩后移动到 /usr/bin/ 中或者 /usr/local/bin/ 确保 ss-redir ss-tunnel 可以直接执行。不知道自己是什么架构的输入 uname -a 查看
 
