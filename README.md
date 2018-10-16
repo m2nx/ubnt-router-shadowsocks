@@ -45,7 +45,12 @@ RETURN     all  --  anywhere             240.0.0.0/4
 RETURN     tcp  --  anywhere             anywhere             match-set chnlist dst
 ```
 3. 安装 shadowsocks-libev  
-架构是 mips 和 mips64 的可以去我这个仓库下载或者自己编译。[ubnt-mips-shadowsocks-libev](https://github.com/imMMX/ubnt-mips-shadowsocks-libev)，解压缩后移动到 /usr/bin/ 中或者 /usr/local/bin/ 确保 ss-redir ss-tunnel 可以直接执行。
+架构是 mips 和 mips64 的可以去我这个仓库 [ubnt-mips-shadowsocks-libev](https://github.com/imMMX/ubnt-mips-shadowsocks-libev) 下载或者自己编译。解压缩后移动到 /usr/bin/ 中或者 /usr/local/bin/ 确保 ss-redir ss-tunnel 可以直接执行。不知道自己是什么架构的输入 uname -a 查看
+
+```
+uname -a
+wget https://github.com/imMMX/ubnt-mips-shadowsocks-libev/releases/download/3.2.0/ss-mips64.zip
+```
 
 4. 启动 supervisord  
 ```
