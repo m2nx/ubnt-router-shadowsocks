@@ -28,8 +28,8 @@ apt-get install git wget supervisorctl
 2. 下载仓库文件并执行脚本  
 ```
 git clone git@github.com:imMMX/ubnt-router-shadowsocks.git
+```  
 按照提示填入服务器信息，等待脚本执行完毕后确认 /etc/dnsmasq.d/ 有相关文件。  
-```
 
 * iptables 样例  
 
