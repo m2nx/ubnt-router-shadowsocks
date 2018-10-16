@@ -38,7 +38,7 @@ sed -i "s|^\(server.*\)/[^/]*$|\1/$_server|" /etc/dnsmasq.d/*."$_server".conf
 done
 
 touch /etc/dnsmasq.d/final.conf
-echo 'server=/#/127.0.0.1#153' > /etc/dnsmasq.d/final.conf
+echo 'server=/#/127.0.0.1#5353' > /etc/dnsmasq.d/final.conf
 echo 'conf-dir=/etc/dnsmasq.d/,*.conf' >> /etc/dnsmasq.conf
 
 echo "Restarting dnsmasq service..."
