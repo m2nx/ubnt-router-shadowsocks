@@ -58,8 +58,8 @@ add_rules()
     ip rule add fwmark 1 lookup 100
 
     # UDP ipset match
-    iptables -t nat -A $CHAIN_NAME -p udp -m set --match-set chnlist dst -j RETURN
-    iptables -t mangle -A BYPASSLIST -p udp -j TPROXY --on-port 1080 --tproxy-mark 0x01/0x01
+    iptables -t mangle -A $CHAIN_NAME -p udp -m set --match-set chnlist dst -j RETURN
+    iptables -t mangle -A $CHAIN_NAME -p udp -j TPROXY --on-port 1080 --tproxy-mark 0x01/0x01
 
     # UDP rule to pretouting chain
     iptables -t mangle -A PREROUTING -p udp -j $CHAIN_NAME
