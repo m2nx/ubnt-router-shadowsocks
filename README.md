@@ -1,5 +1,5 @@
 # ubnt-router-shadowsocks  
-在 usg，edgerouter 等设备上安装 ss 的一键脚本，包括 dnsmasq 配置，以及 iptables，国内 ip 走直连，除此以外默认走代理。
+在 usg，edgerouter 等设备上安装 ss 的脚本，包括 dnsmasq 配置，以及 iptables，国内 ip 走直连，除此以外默认走代理。
 
 # 说明
 
@@ -23,7 +23,7 @@ set system package repository wheezy url http://http.us.debian.org/debian
 commit ; save
 sudo -i
 apt-get update
-apt-get install git wget supervisorctl
+apt-get install git wget supervisor
 ```
 2. 下载仓库文件并执行脚本  
 ```
