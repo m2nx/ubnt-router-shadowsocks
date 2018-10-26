@@ -29,7 +29,22 @@ apt-get install git wget supervisor
 ```
 git clone git@github.com:imMMX/ubnt-router-shadowsocks.git
 ```  
-依次执行 install.sh, dnsmasqchn.sh, iptables.sh   
+依次执行 
+```
+./install.sh
+./dnsmasqchn.sh
+./iptables.sh add_rules
+```
+修改 /etc/rc.local，确保重启后 1.自动更新 iptabless 2.创建 supervisor 的日志目录（重启后消失） 3.加载 UDP 模块
+```
+mkdir -p /var/log/supervisor/
+supervisord
+
+sleep 10
+/root/install.sh add_rules
+wait
+modprobe xt_TPROXY
+```
 按照提示填入服务器信息，等待脚本执行完毕后确认 /etc/dnsmasq.d/ 有相关文件，确认 iptables 写入成功
 
 ```
