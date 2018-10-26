@@ -27,7 +27,7 @@ apt-get install git wget supervisor
 ```
 2. 下载仓库文件并执行脚本  
 ```
-git clone git@github.com:imMMX/ubnt-router-shadowsocks.git
+git clone https://github.com/imMMX/ubnt-router-shadowsocks.git 
 ```  
 依次执行 
 ```
